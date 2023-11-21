@@ -1,11 +1,11 @@
 function checkPasswordStrength() {
     var password = document.getElementById("password").value;
-    var strength = checkPasswordStrengthRules(password);
-    var strengthPercentage = strength * 20;
+    var strengthPercentage = calculatePasswordStrength(password);
 
     var strengthBar = document.getElementById("strength-bar");
     var strengthLabel = document.getElementById("strength-label");
 
+    // Update the color of the strength bar based on the percentage
     if (strengthPercentage < 40) {
         strengthBar.style.backgroundColor = 'red';
     } else if (strengthPercentage < 60) {
@@ -19,8 +19,7 @@ function checkPasswordStrength() {
     strengthLabel.innerHTML = "Strength: " + strengthPercentage + "%";
 }
 
-function checkPasswordStrengthRules(password) {
-    // Implement your password strength rules here
+function calculatePasswordStrength(password) {
     var lengthRule = Math.min(password.length, 8); // Increment strength for each character beyond 8
     var uppercaseRule = /[A-Z]/.test(password) ? 1 : 0;
     var lowercaseRule = /[a-z]/.test(password) ? 1 : 0;
@@ -31,7 +30,7 @@ function checkPasswordStrengthRules(password) {
     var strength = lengthRule + uppercaseRule + lowercaseRule + digitRule + specialCharRule;
 
     // Calculate the percentage with a maximum of 100%
-    var strengthPercentage = Math.min(strength * 25, 100);
+    var strengthPercentage = Math.min(strength * 20, 100);
 
     return strengthPercentage;
 }
