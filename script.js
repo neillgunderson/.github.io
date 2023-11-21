@@ -20,7 +20,17 @@ function checkPasswordStrength() {
 }
 
 function calculatePasswordStrength(password) {
-    var strengthPercentage = Math.min(password.length * 20, 100);
+    var lengthRule = Math.min(password.length, 8); // Increment strength for each character beyond 8
+    var uppercaseRule = /[A-Z]/.test(password) ? 1 : 0;
+    var lowercaseRule = /[a-z]/.test(password) ? 1 : 0;
+    var digitRule = /\d/.test(password) ? 1 : 0;
+    var specialCharRule = /[!@#$%^&*()-_=+[\]{}|;:'<>,.?/]/.test(password) ? 1 : 0;
+
+    // Sum the rules to get a strength value between 0 and 5
+    var strength = lengthRule + uppercaseRule + lowercaseRule + digitRule + specialCharRule;
+
+    // Calculate the percentage with a maximum of 100%
+    var strengthPercentage = Math.min(strength * 20, 100);
 
     return strengthPercentage;
 }
