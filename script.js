@@ -21,6 +21,14 @@ function checkPasswordStrength() {
 
 function checkPasswordStrengthRules(password) {
     // Implement your password strength rules here
-    // For simplicity, let's assume a minimum length requirement
-    return password.length >= 8 ? 5 : 0;
+    var lengthRule = password.length >= 8;
+    var uppercaseRule = /[A-Z]/.test(password);
+    var lowercaseRule = /[a-z]/.test(password);
+    var digitRule = /\d/.test(password);
+    var specialCharRule = /[!@#$%^&*()-_=+[\]{}|;:'<>,.?/]/.test(password);
+
+    // Sum the rules to get a strength value between 0 and 5
+    var strength = lengthRule + uppercaseRule + lowercaseRule + digitRule + specialCharRule;
+
+    return strength;
 }
