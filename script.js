@@ -8,7 +8,7 @@ function checkPasswordStrength() {
     // Update the color of the strength bar based on the percentage
     if (strengthPercentage === 0) {
         // Reset to background color when no characters are present
-        strengthBar.style.backgroundColor = 'initial';
+        strengthBar.style.backgroundColor = 'white';
     } else if (strengthPercentage < 20) {
         strengthBar.style.backgroundColor = 'red';
     } else if (strengthPercentage < 40) {
