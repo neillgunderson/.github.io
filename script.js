@@ -20,16 +20,14 @@ function checkPasswordStrength() {
 }
 
 function calculatePasswordStrength(password) {
-    var lengthRule = Math.min(password.length, 8); // Increment strength for each character beyond 8
-
     // If there's at least one character and the length is less than 8, start with 20%
     var initialStrength = password.length > 0 && password.length < 8 ? 20 : 0;
 
-    // Sum the rules to get a strength value between 1 and 5
-    var strength = lengthRule;
+    // Increment strength for each character
+    var strength = Math.min(password.length, 8);
 
     // Calculate the percentage with a maximum of 100%
-    var strengthPercentage = Math.min(initialStrength + strength * 20, 100);
+    var strengthPercentage = Math.min(initialStrength + strength * 10, 100);
 
     return strengthPercentage;
 }
