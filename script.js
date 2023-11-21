@@ -6,12 +6,14 @@ function checkPasswordStrength() {
     var strengthLabel = document.getElementById("strength-label");
 
     // Update the color of the strength bar based on the percentage
-    if (strengthPercentage < 40) {
+    if (strengthPercentage < 20) {
         strengthBar.style.backgroundColor = 'red';
-    } else if (strengthPercentage < 60) {
+    } else if (strengthPercentage < 40) {
         strengthBar.style.backgroundColor = 'orange';
-    } else if (strengthPercentage < 80) {
+    } else if (strengthPercentage < 60) {
         strengthBar.style.backgroundColor = 'yellow';
+    } else if (strengthPercentage < 80) {
+        strengthBar.style.backgroundColor = 'green';
     } else {
         strengthBar.style.backgroundColor = '#00ff00';  // Bright green
     }
@@ -27,7 +29,7 @@ function calculatePasswordStrength(password) {
     var strength = Math.min(password.length, 8);
 
     // Calculate the percentage with a maximum of 100%
-    var strengthPercentage = Math.min(initialStrength + strength * 0, 100);
+    var strengthPercentage = Math.min(initialStrength + strength * 0, 110);
 
     return strengthPercentage;
 }
