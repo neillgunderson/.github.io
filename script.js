@@ -6,17 +6,24 @@ function checkPasswordStrength() {
     var strengthLabel = document.getElementById("strength-label");
 
     // Update the color of the strength bar based on the percentage
-    if (strengthPercentage < 30) {
+    if (strengthPercentage === 0) {
+        // Reset to background color when no characters are present
+        strengthBar.style.backgroundColor = 'initial';
+    } else if (strengthPercentage < 20) {
         strengthBar.style.backgroundColor = 'red';
-    } else if (strengthPercentage < 50) {
+    } else if (strengthPercentage < 40) {
         strengthBar.style.backgroundColor = 'orange';
-    } else if (strengthPercentage < 70) {
+    } else if (strengthPercentage < 60) {
         strengthBar.style.backgroundColor = 'yellow';
-    } else if (strengthPercentage < 90) {
+    } else if (strengthPercentage < 80) {
         strengthBar.style.backgroundColor = 'green';
     } else {
         strengthBar.style.backgroundColor = '#00ff00';  // Bright green
     }
+
+    // Adjust the margin-top to align with the "Enter Password" line
+    var marginTop = password.length > 0 ? '2px' : 'initial';
+    strengthBar.style.marginTop = marginTop;
 
     strengthLabel.innerHTML = "Strength: " + strengthPercentage + "%";
 }
