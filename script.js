@@ -21,7 +21,7 @@ function checkPasswordStrength() {
 
 function calculatePasswordStrength(password) {
     // If there's at least one character and the length is less than 8, start with 20%
-    var initialStrength = password.length > 0 && password.length < 8 ? 20 : 0;
+    var initialStrength = password.length > 0 && password.length < 8 ? 10 : 0;
 
     // Increment strength for each character
     var strength = Math.min(password.length, 8);
