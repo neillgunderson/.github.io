@@ -27,7 +27,7 @@ function calculatePasswordStrength(password) {
     var strength = Math.min(password.length, 8);
 
     // Calculate the percentage with a maximum of 100%
-    var strengthPercentage = Math.min(initialStrength + strength * 10, 100);
+    var strengthPercentage = Math.min(initialStrength + strength * 0, 100);
 
     return strengthPercentage;
 }
