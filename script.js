@@ -6,7 +6,7 @@ function checkPasswordStrength() {
     var strengthLabel = document.getElementById("strength-label");
 
     // Update the color of the strength bar based on the percentage
-    if (strengthPercentage < 1) {
+    if (strengthPercentage < 10) {
         strengthBar.style.backgroundColor = 'white';
     } else if (strengthPercentage < 20) {
         strengthBar.style.backgroundColor = 'red';
