@@ -20,12 +20,11 @@ function checkPasswordStrength() {
         strengthBar.style.backgroundColor = '#00ff00';  // Bright green
     }
 
-    // Adjust the margin-top to align with the "Enter Password" line
-    var marginTop = password.length > 0 ? '2px' : 'initial';
-    strengthBar.style.marginTop = marginTop;
+    // Adjust the width to align with the password input bar
+    strengthBar.style.width = password.length * 10 + '%';
 
     strengthLabel.innerHTML = "Strength: " + strengthPercentage + "%";
-}
+    }
 
 function calculatePasswordStrength(password) {
     // Increment strength for each character, with a maximum of 100%
