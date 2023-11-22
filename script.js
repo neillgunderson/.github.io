@@ -20,8 +20,7 @@ function checkPasswordStrength() {
         strengthBar.style.backgroundColor = '#00ff00';  // Bright green
     }
 
-    // Adjust the width to align with the password input bar
-    strengthBar.style.width = password.length * 10 + '%';
+    strengthBar.style.width = Math.min(strengthPercentage, 100) + '%';
 
     strengthLabel.innerHTML = "Strength: " + strengthPercentage + "%";
     }
