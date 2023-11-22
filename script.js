@@ -21,6 +21,11 @@ function checkPasswordStrength() {
     }
 }
 
+    // Set the width to align with the password input bar, with a maximum of 100%
+    strengthBar.style.width = (password.length * 10) + '%';
+
+    strengthLabel.innerHTML = "Strength: " + strengthPercentage + "%";
+
 function calculatePasswordStrength(password) {
     // Increment strength for each character, with a maximum of 100%
     var strength = Math.min(password.length * 10, 100);
