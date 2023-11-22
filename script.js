@@ -20,9 +20,12 @@ function checkPasswordStrength() {
         strengthBar.style.backgroundColor = '#00ff00';  // Bright green
     }
 
-    strengthBar.style.width = Math.min(strengthPercentage, 100) + '%' < 100;
+    // Ensure the width doesn't exceed 100%
+    if (strengthPercentage <= 100) {
+        strengthBar.style.width = strengthPercentage + '%';
+    }
 
-    strengthLabel.innerHTML = "Strength: " + strengthPercentage + "%" < 100;
+    strengthLabel.innerHTML = "Strength: " + strengthPercentage + "%";
 }
 
 function calculatePasswordStrength(password) {
