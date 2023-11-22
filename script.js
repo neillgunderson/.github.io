@@ -20,7 +20,7 @@ function checkPasswordStrength() {
         strengthBar.style.backgroundColor = '#00ff00';  // Bright green
     }
 
-    strengthBar.style.width = Math.min(strengthPercentage, 100) + '%';
+    strengthBar.style.width = Math.max(strengthPercentage, 100) + '%';
 
     strengthLabel.innerHTML = "Strength: " + strengthPercentage + "%";
     }
